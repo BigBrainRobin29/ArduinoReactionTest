@@ -14,9 +14,18 @@ const int BUTTON = 13;
 const int MIN_DELAY = 2000;
 const int MAX_DELAY = 4000;
 
+String currentText = "";
+
 
 // print to lcd, allows new line character
 void printLcd(String str) {
+  // If the string is the same as the current text, do not update
+  if (str == currentText) {
+    return;
+  }
+
+  currentText = str;
+
   if (str.indexOf('\n') == -1) {
     // String contains 1 line
     lcd.clear();
