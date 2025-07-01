@@ -16,7 +16,6 @@ const int MAX_DELAY = 4000;
 
 String currentText = "";
 
-
 // print to lcd, allows new line character
 void printLcd(String str) {
   // If the string is the same as the current text, do not update
@@ -61,6 +60,13 @@ void loop() {
 }
 
 void check() {
+  for (int i = 3; i >= 0; i--) {
+    printLcd("Get ready!\n" + String(i));
+    delay(1000);
+  }
+
+  printLcd("Waiting...");
+
   int delayms = random(MIN_DELAY, MAX_DELAY);
   Serial.println(delayms);
   for (int i = 0; i < delayms / 10; i++) {
@@ -72,6 +78,7 @@ void check() {
     }
   }
   digitalWrite(LED, HIGH);
+  printLcd("Press now!");
   long startTime = millis();
   long endTime;
   while (digitalRead(BUTTON) == 0) {
@@ -89,5 +96,5 @@ void check() {
   Serial.println(diff);
   digitalWrite(LED, LOW);
   printLcd("Time:\n" + String(diff) + "ms");
-  delay(300);
+  delay(1000);
 }
