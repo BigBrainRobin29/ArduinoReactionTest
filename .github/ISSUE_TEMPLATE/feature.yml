@@ -1,0 +1,18 @@
+name: Feature Request
+description: Suggest a new feature for this project
+title: "[Feature]: "
+labels: [feature]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+
+  - type: input
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: Briefly describe the feature you would like to see.
+      placeholder: Add a short summary of your feature request
+    validations:
+      required: true
