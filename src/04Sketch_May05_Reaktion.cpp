@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "LiquidCrystal_I2C.h"
 
-void check();
+long check();
 void printLcd();
 
 // Initialize ldc object
@@ -49,20 +49,57 @@ void printLcd(String str) {
 void setup() {
   lcd.init();
   lcd.backlight();
+
   pinMode(LED, OUTPUT);
   pinMode(BUTTON, INPUT_PULLUP);
+
   Serial.begin(9600);
   Serial.println("init");
 }
 
 void loop() {
-  check();
+  long times1[5];
+  long times2[5];
+
+  for (int i = 0; i < 5; i++) {
+    long time = check();
+
+    if (time == -1) {
+      i--;
+      continue;
+    }
+
+    times1[i] = time;
+  }
+
+  printLcd("Now take your\nglasses off!");
+
+  delay(2000);
+
+  for (int i = 0; i < 5; i++) {
+    long time = check();
+
+    if (time == -1) {
+      i--;
+      continue;
+    }
+
+    times2[i] = time;
+  }
+
+  printLcd("Test done!");
+
+  delay(2000);
+
+  printLcd("Check serial\nfor results.");
+
+  delay(5000);
 }
 
-void check() {
+long check() {
   printLcd("Press button\nto start!");
   while (digitalRead(BUTTON) == 1) {
-
+    // pass
   } 
 
   for (int i = 3; i >= 0; i--) {
@@ -82,7 +119,7 @@ void check() {
     if (digitalRead(BUTTON) == 0) {
       printLcd("Too early!");
       delay(1000);
-      return;
+      return -1L;
     }
   }
   
@@ -111,4 +148,6 @@ void check() {
   digitalWrite(LED, LOW);
   printLcd("Time:\n" + String(diff) + "ms");
   delay(1000);
+
+  return diff;
 }
