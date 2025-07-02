@@ -60,6 +60,11 @@ void loop() {
 }
 
 void check() {
+  printLcd("Press button\nto start!");
+  while (digitalRead(BUTTON) == 1) {
+
+  } 
+
   for (int i = 3; i >= 0; i--) {
     printLcd("Get ready!\n" + String(i));
     delay(1000);
