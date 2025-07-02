@@ -66,7 +66,7 @@ void check() {
   } 
 
   for (int i = 3; i >= 0; i--) {
-    printLcd("Get ready!\n" + String(i));
+    printLcd("Starting in " + String(i) + "...");
     delay(1000);
   }
 
