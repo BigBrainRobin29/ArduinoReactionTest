@@ -11,8 +11,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 const int LED = 8;
 const int BUTTON = 13;
 
-const int MIN_DELAY = 2000;
-const int MAX_DELAY = 4000;
+const int MIN_DELAY = 1000;
+const int MAX_DELAY = 5000;
 
 String currentText = "";
 
