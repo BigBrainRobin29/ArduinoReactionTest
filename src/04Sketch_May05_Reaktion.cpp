@@ -123,7 +123,7 @@ long check() {
   // Countdown before starting
   for (int i = 3; i >= 0; i--) {
     printLcd("Starting in " + String(i) + "...");
-    delay(1000);
+    delay(750);
   }
 
   printLcd("Waiting...");
