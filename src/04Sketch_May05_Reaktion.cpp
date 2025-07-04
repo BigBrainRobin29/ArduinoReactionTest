@@ -109,6 +109,15 @@ void loop() {
 
   printLcd("Check serial\nfor results.");
 
+  // Print results as CSV to Serial
+  Serial.println("Results:");
+  Serial.println("With glasses,Without glasses");
+  for (int i = 0; i < 5; i++) {
+    Serial.print(times1[i]);
+    Serial.print(";");
+    Serial.println(times2[i]);
+  }
+
   delay(5000);
 }
 
