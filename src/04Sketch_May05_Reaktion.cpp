@@ -117,6 +117,7 @@ void loop() {
     Serial.print(";");
     Serial.println(times2[i]);
   }
+  Serial.println("=MITTELWERT(A1:A6);=MITTELWERT(B1:B6)");
 
   delay(5000);
 }
