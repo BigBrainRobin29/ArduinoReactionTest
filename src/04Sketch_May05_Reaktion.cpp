@@ -111,7 +111,7 @@ void loop() {
 
   // Print results as CSV to Serial
   Serial.println("Results:");
-  Serial.println("With glasses,Without glasses");
+  Serial.println("With glasses;Without glasses");
   for (int i = 0; i < 5; i++) {
     Serial.print(times1[i]);
     Serial.print(";");
