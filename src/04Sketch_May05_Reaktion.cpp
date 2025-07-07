@@ -61,7 +61,7 @@ void setup() {
 
   // Initialize Serial
   Serial.begin(9600);
-  Serial.println("init");
+  Serial.println("Initialized Reaction Test!");
 }
 
 void loop() {
@@ -140,11 +140,9 @@ long check() {
 
   // Generate random delay between MIN_DELAY and MAX_DELAY
   int delayms = random(MIN_DELAY, MAX_DELAY);
-  Serial.println(delayms);
 
   // Wait for a random time while checking if the button is pressed to early
   for (int i = 0; i < delayms / 10; i++) {
-    Serial.println(i);
     delay(10);
 
     if (digitalRead(BUTTON) == 0) {
@@ -170,7 +168,6 @@ long check() {
   // Button was pressed, wait for release
   while (true) {
     int digital = digitalRead(BUTTON);
-    Serial.println(digital);
     if (digital == 0) {
       endTime = millis();
       break;
@@ -179,7 +176,6 @@ long check() {
 
   // Calculate the reaction time
   long diff = endTime - startTime;
-  Serial.println(diff);
 
   digitalWrite(LED, LOW);
   printLcd("Time:\n" + String(diff) + "ms");
