@@ -45,15 +45,16 @@
     [ "lcd1:SDA", "uno:A4", "green", [ "h-9.6", "v153.8", "h562.2" ] ],
     [ "lcd1:SCL", "uno:A5", "green", [ "v153.9", "h562.1" ] ],
     [ "lcd1:GND", "bb1:tn.48", "green", [ "v-134.4", "h-144", "v28.9" ] ],
+    [ "led1:A", "bb1:49t.a", "gray", [ "h0" ] ],
+    [ "uno:8", "bb1:56t.b", "black", [ "v0" ] ],
     [ "btn1:1.l", "bb1:36t.c", "", [ "$bb" ] ],
     [ "btn1:2.l", "bb1:34t.c", "", [ "$bb" ] ],
     [ "btn1:1.r", "bb1:36b.h", "", [ "$bb" ] ],
     [ "btn1:2.r", "bb1:34b.h", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:tn.40", "", [ "$bb" ] ],
     [ "r1:1", "bb1:50t.a", "", [ "$bb" ] ],
     [ "r1:2", "bb1:56t.a", "", [ "$bb" ] ],
-    [ "led1:C", "bb1:tn.40", "", [ "$bb" ] ],
-    [ "led1:A", "bb1:49t.a", "gray", [ "h0" ] ],
-    [ "uno:8", "bb1:56t.b", "black", [ "v0" ] ]
+    [ "bb1:49t.b", "bb1:50t.b", "green", [ "v0" ] ]
   ],
   "dependencies": {}
 }
